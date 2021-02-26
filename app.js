@@ -1,12 +1,13 @@
-// app.js
 const express = require('express')
 var request = require('request');
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const http = require("http");
 const url = require('url');
+const dotenv = require('dotenv');
 
-// Create Express app
+dotenv.config();
+
 const app = express();
 
 //app.use(express.static(__dirname));
@@ -83,6 +84,6 @@ app.post("/search", function(req, res){
 });
 
 // Start the Express server
-app.listen(8000, () => {
+app.listen(`${process.env.PORT}`, () => {
 	console.log('Server running on port 3000!')
 })

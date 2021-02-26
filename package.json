@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "web": "node app.js",
+  "web": "nodemon app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com:iamlalit/searchviazipcode.git"
