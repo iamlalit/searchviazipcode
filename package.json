@@ -1,0 +1,26 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "Search via Postcode",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "web": "node app.js",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:iamlalit/searchviazipcode.git"
+  },
+  "author": "Lalit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com:iamlalit/searchviazipcode.git"
+  },
+  "homepage": "https://github.com:iamlalit/searchviazipcode.git#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "request": "^2.88.2",
+    "express": "^4.15.2"
+  }
+}
