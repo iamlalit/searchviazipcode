@@ -1,0 +1,372 @@
+<div class="search-ads-container">
+	<div class="search-ads">
+		<div>
+			<h1> Congratulations </h1>
+		</div>
+		
+		<% if(data && data.searchAds) { %>
+			<% for(var i=0; i < data.searchAds.length; i++) { %>
+				<% item=data.searchAds[i] %>
+				
+				<% if(item.business) { %>
+				
+					<div class="item">
+						<div class="item-content-wrapper">
+							<div class="heading">
+								<div class="name">
+									<h4><%=item.business.name %></h4>
+									<a href="tel:<%=item.phone %>"><%=item.business.name %></a>
+								</div>
+								<div class="call">Call <a href="tel:<%=item.phone %>"><%=item.phone %></a></div>
+							</div>
+							
+							<div class="services">
+							
+								<% if(item.business.services) { %>
+								
+									<strong>Services: </strong>
+									<% for(var a=0; a < item.business.services.length; a++) { %>
+										<% if(item.business.services[a]) { %>
+											<span><%-item.business.services[a] %></span>
+										<% } %>		
+									<% } %>
+
+								<% } %>
+
+							</div>
+							<div class="tabset-container">
+								<div class="tabs">
+									<div>
+										<% if(item.business.features || item.business.bullet1) { %>
+											<h4 data-target="description" class="active">Description</h4>
+										<% } %>	
+									</div>
+									<div>
+										<% if(item.business.images) { %>
+											<h4 data-target="photos" class="">Photos</h4>
+										<% } %>
+									</div>
+								</div>
+								<div class="tab-content active" data-tab="description">
+									<% if(item.business.features) {	%>
+										<ul class="features">
+											<% for(var l=0; l < item.business.features.length; l++) { %>
+												<% if(item.business.features[l]) { %>
+													<li><span><%-item.business.features[l] %></span></li>
+												<% } %>		
+											<% } %>
+										</ul>
+									<% } %>
+									<% if(item.business.bullet1) { %>
+										<ul class="bullets">
+											<% if(item.business.bullet1) { %>
+												<li><%-item.business.bullet1 %></li>
+											<% } %>
+											<% if(item.business.bullet2) { %>
+												<li><%-item.business.bullet2 %></li>
+											<% } %>
+											<% if(item.business.bullet3) { %>
+												<li><%-item.business.bullet3 %></li>
+											<% } %>
+										</ul>
+									<% } %>
+								</div>
+								<div class="tab-content" data-tab="photos">
+									<% if(item.business.images) { %>
+										<div class="images-container">
+											<% for(var k=0; k < item.business.images.length; k++) { %>
+												<% if(item.business.images[k]) { %>
+													<img src="<%=item.business.images[k] %>" alt="<%=item.business.name %>">
+												<% } %>
+											<% } %>
+										</div>
+									<% } %>
+								</div>
+							</div>
+							<div class="description-container">
+								<div class="teaser"></div>
+								<% if(item.business.features) {	%>
+									<ul class="features">
+										<% for(var l=0; l < item.business.features.length; l++) { %>
+											<% if(item.business.features[l]) { %>
+												<li><span><%-item.business.features[l] %></span></li>
+											<% } %>		
+										<% } %>
+									</ul>
+								<% } %>
+								<% if(item.business.bullet1) { %>
+									<ul class="bullets">
+										<% if(item.business.bullet1) { %>
+											<li><%-item.business.bullet1 %></li>
+										<% } %>
+										<% if(item.business.bullet2) { %>
+											<li><%-item.business.bullet2 %></li>
+										<% } %>
+										<% if(item.business.bullet3) { %>
+											<li><%-item.business.bullet3 %></li>
+										<% } %>
+									</ul>
+								<% } %>
+							</div>
+							<% if(item.business.address) { %>
+								<address>
+									<% if(item.business.address.street) { %>
+										<span><%-item.business.address.street %></span>
+									<% } %>
+									<% if(item.business.address.city) { %>
+										<span><%-item.business.address.city %></span>
+									<% } %>
+									<% if(item.business.address.state) { %>
+										<span><%-item.business.address.state %></span>
+									<% } %>
+									<% if(item.business.address.postalCode) { %>
+										<span><%-item.business.address.postalCode %></span>
+									<% } %>
+								</address>
+							<% } %>
+						</div>
+						<div class="footer-cta">
+							<h4>Call <a href="tel:<%=item.phone %>"><%=item.phone %></a> <span class="tag">Now To Make An Appointment</span></h4>
+						</div>
+					</div>
+				<% } %>
+
+			<% } %>
+		<% } %>
+	  
+	</div>
+</div>
+<style>
+	.search-ads-container {
+	    background: #fff;
+	    font-family: verdana;
+	}
+	.search-ads-container .search-ads {
+	    width: 768px;
+	    margin: 0 auto;
+	    margin-top: 100px;
+	}
+	.search-ads-container .search-ads .item {
+	    width: 100%;
+	    border: 1px solid #000;
+	    margin-top: 30px;
+	}
+	.search-ads-container .search-ads .item .heading {
+	    border-bottom: 1px solid #000;
+	    display: flex;
+	}
+	.search-ads-container .search-ads .item .heading .name {
+	    background: #bcd1ff;
+	    min-width: 510px;
+	    max-width: 510px;
+	    flex: 1;
+	    border-right: 1px solid #000
+	}
+	.search-ads-container .search-ads .item .heading .name h4 {
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    font-size: 24px;
+	    font-weight: 700;
+	    margin: 0;
+	    padding: 10px
+	}
+	.search-ads-container .search-ads .item .heading .name a {
+	    display: none
+	}
+	.search-ads-container .search-ads .item .heading .call {
+	    flex: 1;
+	    font-size: 16px;
+	    background-color: #fff8dd;
+	    font-weight: 700;
+	    padding: 10px;
+	    text-align: center
+	}
+	.search-ads-container .search-ads .item .hours {
+	    border-bottom: 1px solid #000;
+	    padding: 10px;
+	    font-weight: 700
+	}
+	.search-ads-container .search-ads .item .services {
+	    border-bottom: 1px solid #000;
+	    padding: 10px
+	}
+	.search-ads-container .search-ads .item .services span:after {
+	    content: ", ";
+	}
+	.search-ads-container .search-ads .item .services span:last-of-type:after {
+	    content: "";
+	}
+	.search-ads-container .search-ads .item .special {
+	    border-bottom: 1px solid #000;
+	    padding: 10px;
+	    color: red
+	}
+	.search-ads-container .search-ads .item .tabset-container .tabs {
+	    display: flex;
+	    border-bottom: 2px solid #000;
+	    border-top: 1px solid #000
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tabs>div {
+	    flex: 1;
+	    border-right: 1px solid #000;
+	    padding: 10px
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tabs>div:last-of-type {
+	    border-right: none
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tabs>div h4 {
+	    margin: 0;
+	    font-size: 18px;
+	    text-align: center;
+	    cursor: pointer;
+	    color: #0060b6;
+	    text-decoration: underline;
+	    font-weight: 700
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tabs>div h4.active {
+	    cursor: default;
+	    text-decoration: none;
+	    color: #000
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tab-content {
+	    padding: 10px;
+	    display: none;
+	    border-bottom: 1px solid #000
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tab-content.active {
+	    display: block
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tab-content .teaser,.search-ads-container .search-ads .item .tabset-container .tab-content .features {
+	    padding-bottom: 10px
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tab-content .images-container {
+	    display: flex;
+	    flex-wrap: wrap
+	}
+
+	.search-ads-container .search-ads .item .tabset-container .tab-content img {
+	    flex: 1;
+	    max-width: 33%;
+	    min-width: 33%;
+	    height: auto;
+	    padding: 10px;
+	    display: block
+	}
+	.search-ads-container .search-ads .item .description-container {
+	    display: none
+	}
+	.search-ads-container .search-ads .item address {
+	    border-bottom: 1px solid #000;
+	    padding: 10px;
+	    font-weight: 400;
+	    margin: 0
+	}
+	.search-ads-container .search-ads .item .footer-cta {
+	    padding: 10px;
+	    background: #e7e7e7
+	}
+	.search-ads-container .search-ads .item .footer-cta h4 {
+	    margin: 0;
+	    font-weight: 500;
+	    font-size: 26px;
+	    text-align: center
+	}
+	.search-ads-container .search-ads .item .footer-cta h4 a {
+	    font-weight: 700;
+	    color: #b70000;
+	    text-decoration: none
+	}
+	.search-ads-container .logo-container {
+	    display: none
+	}
+	.sem-profile-wrapper {
+	    background: #fff;
+	    min-height: 100vh;
+	    font-size: 14px;
+	    color: #444;
+	    line-height: 18px
+	}
+	.sem-profile-wrapper h1 {
+	    width: 100%;
+	    padding: 8px 10px;
+	    font-size: 18px;
+	    line-height: 22px;
+	    font-weight: bold;
+	    text-align: center;
+	    color: #fff;
+	    text-shadow: 1px 1px 1px #333;
+	    border-bottom: 1px solid #333;
+	    background: #4b4b4a;
+	    background: linear-gradient(to bottom, #4b4b4a 0%, #333333 100%);
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b4b4a", endColorstr="#333333",GradientType=0 )
+	}
+	.sem-profile-wrapper h2 {
+	    font-size: 15px;
+	    font-weight: 700;
+	    margin-bottom: 3px
+	}
+
+	.sem-profile-wrapper p {
+	    margin-bottom: 10px
+	}
+
+	.sem-profile-wrapper .cta-container {
+	    width: 100%;
+	    margin: 0 auto;
+	    padding: 20px 0
+	}
+
+	.sem-profile-wrapper .cta-container .btn {
+	    margin: 0 auto !important;
+	    display: block;
+	    width: 75%;
+	    min-width: 240px;
+	    color: #fff;
+	    text-shadow: -1px -1px 1px #333;
+	    padding: 12px 10px;
+	    font-size: 22px;
+	    line-height: 26px;
+	    font-weight: bold;
+	    text-align: center;
+	    background: #5d8edc;
+	    background: -moz-linear-gradient(top, #5d8edc 0%, #2a78ef 50%, #216fef 51%, #0049bc 100%);
+	    background: -webkit-linear-gradient(top, #5d8edc 0%, #2a78ef 50%, #216fef 51%, #0049bc 100%);
+	    background: linear-gradient(to bottom, #5d8edc 0%, #2a78ef 50%, #216fef 51%, #0049bc 100%);
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#5d8edc", endColorstr="#0049bc",GradientType=0 );
+	    border: 1px solid #74a5f6;
+	    border-top: 1px solid #a3ccfc;
+	    box-shadow: 0px 0px 0px 1px #ababaa
+	}
+
+	.sem-profile-wrapper .wrapper {
+	    padding: 5px 20px 5px
+	}
+
+	.sem-profile-wrapper .hours {
+	    font-weight: 700
+	}
+
+	.sem-profile-wrapper .description ul {
+	    padding: 0 15px
+	}
+
+	.sem-profile-wrapper .logo-container {
+	    border-top: 1px solid #eee;
+	    padding: 10px 0 15px
+	}
+
+	.sem-profile-wrapper .logo-container img {
+	    display: block;
+	    margin: 0 auto;
+	    width: 80%
+	}
+</style>
