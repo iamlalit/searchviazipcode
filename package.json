@@ -7,7 +7,6 @@
     "start": "nodemon app.js"
   },
   "web": "node app.js",
-  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com:iamlalit/searchviazipcode.git"
