@@ -37,7 +37,7 @@ app.get("/search", function(req, res){
 	  },
 	  body: JSON.stringify({
 	    query: `query($pincode: String!){
-	    searchAds(publisher: "talmktdcc", type: null, keyword: "pest", zip: $pincode, hasLocation: true, paidOnly: null, rpp: 10, page: 1)
+	    searchAds(publisher: "talmktdcc", type: null, keyword: "pest", zip: $pincode, hasLocation: true, paidOnly: null, rpp: 10, page: 1, type: CALL)
 	    {
 	        type
 	        tagline

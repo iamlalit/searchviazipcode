@@ -3,7 +3,6 @@
 		<div>
 			<h1> Congratulations </h1>
 		</div>
-		
 		<% if(data && data.searchAds) { %>
 			<% for(var i=0; i < data.searchAds.length; i++) { %>
 				<% item=data.searchAds[i] %>
@@ -22,7 +21,7 @@
 							
 							<div class="services">
 							
-								<% if(item.business.services) { %>
+								<% if(item.business.services && item.business.services.length) { %>
 								
 									<strong>Services: </strong>
 									<% for(var a=0; a < item.business.services.length; a++) { %>
@@ -42,13 +41,13 @@
 										<% } %>	
 									</div>
 									<div>
-										<% if(item.business.images) { %>
+										<% if(item.business.images && item.business.images.length) { %>
 											<h4 data-target="photos" class="">Photos</h4>
 										<% } %>
 									</div>
 								</div>
 								<div class="tab-content active" data-tab="description">
-									<% if(item.business.features) {	%>
+									<% if(item.business.features && item.business.features.length) {	%>
 										<ul class="features">
 											<% for(var l=0; l < item.business.features.length; l++) { %>
 												<% if(item.business.features[l]) { %>
@@ -85,7 +84,7 @@
 							</div>
 							<div class="description-container">
 								<div class="teaser"></div>
-								<% if(item.business.features) {	%>
+								<% if(item.business.features && item.business.features.length) {	%>
 									<ul class="features">
 										<% for(var l=0; l < item.business.features.length; l++) { %>
 											<% if(item.business.features[l]) { %>
@@ -133,7 +132,7 @@
 
 			<% } %>
 		<% } %>
-	  
+	    
 	</div>
 </div>
 <style>
